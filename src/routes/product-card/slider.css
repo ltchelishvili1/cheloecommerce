@@ -1,0 +1,18 @@
+.swiper-pagination-bullet {
+  display: flex;
+  padding: 2rem;
+  background: transparent;
+}
+ @media (max-width: 728px) {
+  .swiper-pagination-bullet {
+    display: none;  
+  }
+  }
+.swiper-pagination {
+  overflow-y: scroll;
+}
+
+.swiper {
+  margin: 0 1rem;
+}
+
