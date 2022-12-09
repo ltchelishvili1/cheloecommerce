@@ -10,7 +10,7 @@ const Categories = () => {
     <Cont >
       {Object.keys(categoriesMap).map((category) => (
         <CategoryContainer  key={category}>
-          <Title to="/">{category.toLocaleUpperCase()}</Title>
+          <Title to={`category=${category}`}>{category.toLocaleUpperCase()}</Title>
             <CategoryPreview 
               key={category}
               products={categoriesMap[category]}

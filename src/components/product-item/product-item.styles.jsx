@@ -3,6 +3,7 @@ import Button from "../button/button.component";
 
 export const MainCont = styled.div`
     padding-left: 3rem;
+    padding-top: 5rem;
 `
 
 export const Name = styled.h1`

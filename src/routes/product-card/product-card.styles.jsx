@@ -6,6 +6,7 @@ export const Image = styled.img`
   cursor: pointer;
   @media (max-width: 728px) {
         display: block;
+       
       }
 `;
 export const MainImage = styled.img`
@@ -20,6 +21,7 @@ export const CustomSwiperSlide = styled(SwiperSlide)`
 `;
 
 export const CustomSwiper = styled(Swiper)`
+
   width: 50%;
   @media (max-width: 728px) {
         width: 100%;
@@ -28,7 +30,7 @@ export const CustomSwiper = styled(Swiper)`
 `;
 
 export const MainContainer = styled.div`
-  padding-top: 5rem;
+
   display: flex;
   @media (max-width: 728px) {
         display: block;

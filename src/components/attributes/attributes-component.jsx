@@ -1,35 +1,68 @@
 import React from "react";
-import { AttributeCont, ValueCont } from "./attributes-styles";
 
-const setAttributes = (id, name, type, items) => {
-  return (
-    <div>
-      <p>{name}</p>
-      <AttributeCont>
-        {items.map((item) =>
-          type === "swatch" ? (
-            <ValueCont style={{backgroundColor:`${item.value}`}}></ValueCont>
-          ) : (
-            <ValueCont>{item.value}</ValueCont>
-          )
-        )}
-      </AttributeCont>
-    </div>
-  );
-};
+import {
+  AttContainer,
+  AttributeCont,
+  Border,
+  Value,
+  ValueCont,
+} from "./attributes-styles";
 
-const Attributes = ({ attributes }) => {
+const Attributes = (props) => {
+  const { product, handleChange, atts } = props;
+  const { attributes } = product;
+
   return (
-    <>
+    <AttContainer>
       {attributes.map((attribute) => {
-        return setAttributes(
-          attribute.id,
-          attribute.name,
-          attribute.type,
-          attribute.items
+        const { name, id, type, items } = attribute;
+        return (
+          <div>
+            <p>{name}</p>
+            <AttributeCont>
+              {items.map((item) =>
+                type === "swatch" ? (
+                  <Border
+                    style={
+                      atts[name] === item.value
+                        ? {
+                            scale: "1.15",
+                            background: "black",
+                            border: `1px solid ${item.value}`,
+                          }
+                        : null
+                    }
+                    tabIndex="1"
+                  >
+                    <ValueCont
+                      background={item.value}
+                      onClick={() =>
+                        handleChange(item.value, name, items, item)
+                      }
+                    ></ValueCont>
+                  </Border>
+                ) : (
+                  <Border
+                    style={
+                      item.value === atts[name]
+                        ? { scale: "1.15", background: "black", color: "#fff" }
+                        : null
+                    }
+                    tabIndex="1"
+                  >
+                    <ValueCont
+                      onClick={() => handleChange(item.value, name, items)}
+                    >
+                      <Value> {item.value}</Value>
+                    </ValueCont>
+                  </Border>
+                )
+              )}
+            </AttributeCont>
+          </div>
         );
       })}
-    </>
+    </AttContainer>
   );
 };
 

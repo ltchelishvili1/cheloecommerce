@@ -1,40 +1,26 @@
-import { useContext } from 'react';
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import { useContext } from "react";
+import CheckoutItem from "../../components/checkout-item/checkout-item.component";
 
-import { CartContext } from '../../contexts/cart-context';
+import { CartContext } from "../../contexts/cart-context";
 
 import {
   CheckoutContainer,
   CheckoutHeader,
   HeaderBlock,
   Total,
-} from './checkout.styles';
+} from "./checkout.styles";
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const { cartItems, cartTotal,currencyIndex } = useContext(CartContext);
   return (
     <CheckoutContainer>
-      <CheckoutHeader>
-        <HeaderBlock>
-          <span>Product</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Description</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Quantity</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Price</span>
-        </HeaderBlock>
-        <HeaderBlock>
-          <span>Remove</span>
-        </HeaderBlock>
-      </CheckoutHeader>
       {cartItems.map((cartItem) => (
-        <CheckoutItem cartItem={cartItem}/>
+        <CheckoutItem cartItem={cartItem} />
       ))}
-      <Total>{cartTotal.toFixed(2)}</Total>
+      <Total>
+        {cartTotal.toFixed(2)}{console.log(cartItems)}
+       {cartItems.length && <span>{ cartItems[0].prices[currencyIndex].currency.symbol}</span>}
+      </Total>
     </CheckoutContainer>
   );
 };

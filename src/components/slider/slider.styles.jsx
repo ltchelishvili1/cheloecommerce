@@ -10,6 +10,7 @@ export const SwiperCont = styled(Swiper)`
 
 export const Img = styled.img`
   position: absolute;
+  object-fit: cover;
   left: 100px;
 `;
 
@@ -18,8 +19,18 @@ export const ImgCont = styled.div`
   left: 100px;
   width: 85%;
   height: 100%;
-  @media (max-width:728px) {
+
+  @media (max-width: 728px) {
     left: 0px;
     width: 100%;
   }
+`;
+
+export const Tittle = styled.span`
+  display: flex;
+  
+  justify-content: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: sans-serif;
 `;

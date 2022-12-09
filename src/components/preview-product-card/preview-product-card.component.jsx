@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/cart-context";
+import { CategoriesContext } from "../../contexts/categories-context";
 import Button from "../button/button.component";
 import {
   ProductCartContainer,
@@ -12,7 +13,7 @@ import {
 
 const PreviewCard = (props) => {
   const  navigate = useNavigate();
-  const { cartItems, addProductToCart } = useContext(CartContext);
+  const { cartItems, addProductToCart,currencyIndex } = useContext(CartContext);
   const [randomImage, setRandomImage] = useState("");
   const { product } = props;
 
@@ -35,9 +36,9 @@ const PreviewCard = (props) => {
       />
       <Footer style={!product.inStock ? { opacity: "0.3" } : null}>
         <Name>{product.name}</Name>
-        <Price>{product.prices[0].amount}</Price>
+        <Price>{product.prices[currencyIndex].amount}<span> {product.prices[currencyIndex].currency.symbol}</span></Price>
       </Footer>
-      {/*product.inStock*/ true ? (
+      {product.inStock ? (
         <Button onClick={handleClick}>SEE MORE</Button>
       ) : (
         <OutOfStock>OUT OF STOCK</OutOfStock>

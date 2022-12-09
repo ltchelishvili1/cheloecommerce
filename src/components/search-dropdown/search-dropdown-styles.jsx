@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Button from "../button/button.component";
 
 import {
@@ -7,16 +7,23 @@ import {
   InvertedButton,
 } from "../button/button.styles";
 
-export const CustButton = styled(Button)`
+export const CustButton = styled(InvertedButton)`
+background: white;
+  box-shadow: inset 10px 0 100px 0 rgb(0 0 0 / 20%);
   position: fixed;
-  top: 480px;
-  width: 370px;
+  top: 335px;
+  width: 223px;
+
+  &:hover{
+    background-color: #010101;
+    box-shadow: inset 10px 0 100px 0 rgb(0 0 0 / 30%); 
+  }
 `;
 
-export const CartDropdownContainer = styled.div`
+export const SearchDropdownContainer = styled.div`
   position: fixed;
-  width: 380px;
-  height: 440px;
+  width: 240px;
+  height: 290px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -24,15 +31,20 @@ export const CartDropdownContainer = styled.div`
   border-radius: 5px;
   background-color: #ffffff;
   box-shadow: inset 10px 0 100px 0 rgba(0, 0, 0, 0.3);
-  top: 55px;
-  right: 20px;
-  z-index: 5;
+
+  ${({ mobile }) =>
+    mobile &&
+    css`
+     top: ${mobile.top};
+     right: ${mobile.right}
+    `};
+
   ${BaseButton},
   ${GoogleSignInButton},
   ${InvertedButton} {
     margin-top: auto;
   }
-  z-index: 50;
+  z-index: 40;
 `;
 
 export const EmptyMessage = styled.span`
@@ -40,7 +52,7 @@ export const EmptyMessage = styled.span`
   margin: 50px auto;
 `;
 
-export const CartItems = styled.div`
+export const SearchItems = styled.div`
   height: 350px;
   display: flex;
   flex-direction: column;

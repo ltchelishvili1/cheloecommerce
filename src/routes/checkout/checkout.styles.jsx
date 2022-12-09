@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const CheckoutContainer = styled.div`
-padding-top: 7rem;
-  width: 55%;
+
+  width: 70%;
+  padding: 7rem 0 0 0;
   min-height: 90vh;
   display: flex;
   flex-direction: column;

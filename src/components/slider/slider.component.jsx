@@ -2,12 +2,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 import logo from "../../assets/123.png";
+import sBack from "../../assets/sback.jpg";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/autoplay";
-import { Img, ImgCont, SwiperCont } from "./slider.styles";
+import { Img, ImgCont, SwiperCont, Tittle } from "./slider.styles";
 
 const SliderComponent = () => {
   return (
@@ -19,19 +20,18 @@ const SliderComponent = () => {
         delay: 4000,
         disableOnInteraction: false,
       }}
-      pagination={{
-        clickable: true,
-      }}
       navigation={true}
-      modules={[Autoplay, Pagination, Navigation]}
+      modules={[Autoplay, Navigation]}
       className="mySwiper"
     >
       <SwiperSlide>
-        <ImgCont style={{ backgroundImage: `url(${logo})`}}>
-                    <span>ssfdgfdxz</span>
+        <ImgCont style={{ backgroundImage: `url(${sBack})`, }}>
+                    <Tittle>Welcome to LSTORE(ad text goes here)</Tittle>
         </ImgCont>
-        <ImgCont style={{ backgroundImage: `url(${logo})`}}>
-                    <span>se</span>
+      </SwiperSlide>
+      <SwiperSlide>
+      <ImgCont style={{ backgroundImage: `url(${logo})`}}>
+                    <Tittle>Feel Free To contact me</Tittle>
         </ImgCont>
       </SwiperSlide>
 

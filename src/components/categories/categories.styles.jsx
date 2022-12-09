@@ -7,6 +7,11 @@ export const Title = styled(Link)`
 
 
 export const Cont = styled.div`
+ padding: 0 5rem;
+ @media (max-width: 768px) {
+    padding: 0;
+    
+  }
  
 `
 

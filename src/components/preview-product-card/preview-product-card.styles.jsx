@@ -17,7 +17,7 @@ export const ProductCartContainer = styled.div`
     object-fit: cover;
     margin-bottom: 5px;
     @media (max-width: 768px) {
-      height: auto;
+      max-height: 300px;
     }
   }
 
@@ -55,7 +55,8 @@ export const Name = styled.span`
 `;
 
 export const Price = styled.span`
-  width: 10%;
+  width: 20%;
+  display: flex;
 `;
 
 export const OutOfStock = styled.span`

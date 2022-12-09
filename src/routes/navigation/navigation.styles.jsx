@@ -57,6 +57,11 @@ export const NavLink = styled(Link)`
   }
 `;
 
+export const Option = styled.option`
+   
+`
+
+
 export const CustomNavlink = styled(NavLink)`
   font-size: 14px;
   @media (max-width: 728px) {
@@ -69,8 +74,8 @@ export const CustomNavlink = styled(NavLink)`
         display: flex;
       }
     `};
-    ${({ hiddenDesktop }) =>
-    hiddenDesktop &&
+    ${({ hiddendesktop }) =>
+    hiddendesktop &&
     css`
     display: none;
       @media (max-width: 728px) {
