@@ -8,7 +8,7 @@ export const Container = styled(Link)`
   cursor: pointer;
   border: 1px solid #c6c6c65d;
   padding: 1rem 0;
-  opacity: .7;
+  opacity: .9;
   &:hover {
     opacity: 1.1;
   }

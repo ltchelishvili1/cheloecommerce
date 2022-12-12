@@ -5,12 +5,17 @@ import { CategoryContainer, Cont, Title } from "./categories.styles";
 import CategoryPreview from "../category-preview/category-preview.component";
 
 const Categories = () => {
-  const { categoriesMap } = useContext(CategoriesContext);
+  const { categoriesMap , setSearch } = useContext(CategoriesContext);
+  
+  const handleClick = () => {
+    setSearch("")
+  }
+
   return (
     <Cont >
       {Object.keys(categoriesMap).map((category) => (
         <CategoryContainer  key={category}>
-          <Title to={`category=${category}`}>{category.toLocaleUpperCase()}</Title>
+          <Title to={`category=${category}`} onClick={handleClick}>{category.toLocaleUpperCase()}</Title>
             <CategoryPreview 
               key={category}
               products={categoriesMap[category]}

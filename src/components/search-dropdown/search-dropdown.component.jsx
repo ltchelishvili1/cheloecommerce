@@ -11,13 +11,7 @@ import {
   SearchItems,
 } from "./search-dropdown-styles";
 const CartDropdown = (props) => {
-  let temp = {
-    top: "55px",
-    right: "180px"
-  }
- if(props.positions){
-    temp = props.positions
- }
+
   const { search, handleSearch, isSearchOpen, setIsSearchOpen } =
     useContext(CategoriesContext);
   const navigate = useNavigate();
@@ -33,7 +27,7 @@ const CartDropdown = (props) => {
   return (
     <>
       {isSearchOpen && <Backdrop transparent onClick={handleClick} />}
-      <SearchDropdownContainer mobile= {temp}>
+      <SearchDropdownContainer >
         <SearchItems>
           {handleSearch(search).map((product) => {
             return <SearchItem product={product} />;

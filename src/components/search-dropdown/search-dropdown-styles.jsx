@@ -31,13 +31,8 @@ export const SearchDropdownContainer = styled.div`
   border-radius: 5px;
   background-color: #ffffff;
   box-shadow: inset 10px 0 100px 0 rgba(0, 0, 0, 0.3);
-
-  ${({ mobile }) =>
-    mobile &&
-    css`
-     top: ${mobile.top};
-     right: ${mobile.right}
-    `};
+  top: 55px;
+  right: 180px;
 
   ${BaseButton},
   ${GoogleSignInButton},

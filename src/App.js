@@ -11,6 +11,7 @@ import SearchPage from './routes/search-page/search-component';
 
 
 
+
 function App() {
 
 const {categoriesMap} = useContext(CategoriesContext)
@@ -25,6 +26,7 @@ const {categoriesMap} = useContext(CategoriesContext)
          <Route key={index} path={`/category=${category}`} element={<Category category={category} products={categoriesMap[category]} />} />
         )}
         <Route path='/search' element={<SearchPage />} />
+      
       </Route>
       
     </Routes>

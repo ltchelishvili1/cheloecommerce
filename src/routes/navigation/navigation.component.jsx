@@ -48,7 +48,7 @@ const Navigation = () => {
     ],
   };
   const [toggle, setToggle] = useState(false);
-  const { isSearchOpen, setIsSearchOpen, search, setSearch } =
+  const { isSearchOpen, setIsSearchOpen, search, setSearch , handleSearch } =
     useContext(CategoriesContext);
   const { isCartOpen, toggleCart, setCurrencyIndex } = useContext(CartContext);
   const handleChange = (event) => {
@@ -96,14 +96,13 @@ const Navigation = () => {
           />
           <CustomNavlink hiddendesktop="true" to= "/" onClick={toggleMenu}>HOME</CustomNavlink>
           <CustomNavlink hiddendesktop="true" to= "/search" onClick={toggleMenu}>SEARCH</CustomNavlink>
-          {isSearchOpen && <SearchDropdown search={search} />}
+          {isSearchOpen && handleSearch(search).length && <SearchDropdown search={search} />}
           <Select hide={"hide"} onChange={handleCurrencySelect}>
             {data &&
               data.currencies.map((cur, index) => (
                 <Option value={index}>{cur.label}</Option>
               ))}
           </Select>
-          <CustomNavlink to="/auth">SIGN IN</CustomNavlink>
           <CartIcon />
           <CustomNavlink hiddendesktop="true" onClick={toggleMenu} to="/checkout">CART</CustomNavlink>
         </NavLinks>
